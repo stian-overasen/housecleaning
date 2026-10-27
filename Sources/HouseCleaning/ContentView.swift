@@ -41,6 +41,9 @@ struct ContentView: View {
                     .disabled(model.isScanning)
             }
         }
+        .task {
+            if model.phase == .idle { await model.scan() }
+        }
         .sheet(isPresented: $model.showingApps) {
             AppsInUseView()
         }
