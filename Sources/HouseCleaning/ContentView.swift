@@ -19,8 +19,10 @@ struct ContentView: View {
                     .background(.quaternary)
             }
             content
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             Divider()
             footer
+                .fixedSize(horizontal: false, vertical: true)
         }
         .searchable(text: $model.searchText, prompt: "Search paths")
         .toolbar {
@@ -109,7 +111,10 @@ struct ContentView: View {
                 }
             }
             Spacer()
-            Button("Move to Trash…", role: .destructive) { model.confirmingTrash = true }
+            Button("Move to Trash…", systemImage: "trash", role: .destructive) { model.confirmingTrash = true }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+                .controlSize(.large)
                 .keyboardShortcut(.delete, modifiers: .command)
                 .disabled(model.selectedVisible.isEmpty || model.isScanning)
         }
@@ -195,6 +200,7 @@ struct FullDiskAccessBanner: View {
             Button("Open Settings") { model.openFullDiskAccessSettings() }
         }
         .padding(10)
+        .fixedSize(horizontal: false, vertical: true)
         .background(.yellow.opacity(0.15))
     }
 }
