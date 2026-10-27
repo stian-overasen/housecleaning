@@ -38,3 +38,7 @@ swift scripts/make-icon.swift   # regenerate Assets/AppIcon.icns
 For complete results, grant **Full Disk Access** to HouseCleaning in System Settings → Privacy & Security. Without it, app containers can't be measured.
 
 > Note: with only the Command Line Tools installed, SwiftUI's `@State` macro is unavailable. View state therefore lives in the `@Observable` `CleanupModel`.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
